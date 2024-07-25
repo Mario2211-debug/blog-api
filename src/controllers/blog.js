@@ -3,9 +3,8 @@ import asyncHandler from 'express-async-handler';
 
 // Função para validar os dados do corpo da requisição
 const validatePostData = (data) => {
-    const { title, content } = data;
-    if (!title || !content) {
-        throw new Error('Title and content are required');
+    if (!data.title || !data.content || !data.description) {
+        throw new Error('Title, content, and description are required');
     }
 };
 
