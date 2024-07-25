@@ -14,7 +14,6 @@ import cors from 'cors'
 
 const app = express();
 
-app.use(express.json())
 app.use(cors())
 
 mongoose.connect(MONGO_URI).then(() => console.log('MongoDB connected')).catch(err => console.error(err))
