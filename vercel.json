@@ -2,8 +2,8 @@
   "version": 2,
   "routes": [
     {
-      "src": "/(.*)",
-      "dest": "/routes/blog.js"
+      "src": "/routes/blog.js(.*)",
+      "dest": "/api/blog"
     }
   ]
 }
