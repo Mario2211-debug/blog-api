@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "build": "echo 'Skipping build step, as this project doesn't require a build.'"
+    "build": "echo Skipping build step, as this project doesn't require a build."
   },
   "keywords": [],
   "author": "",
