@@ -17,6 +17,7 @@ export const getPosts = async (req, res) => {
     try {
         const posts = await Post.find();
         res.json(posts);
+        console.log("Solicitando o GET")
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
@@ -27,6 +28,7 @@ export const getPostByID = asyncHandler(async (req, res) => {
     if (!post) {
         return res.status(404).json({ message: 'Post not found' });
     }
+    console.log("Solicitando o GET BY ID")
     res.json(post);
 });
 
@@ -74,6 +76,8 @@ export const updatePost = async (req, res) => {
     try {
         const updatedPost = await Post.findByIdAndUpdate(req.params.id, req.body, { new: true });
         res.json(updatedPost);
+        console.log("Post atualizado com sucesso")
+
     } catch (err) {
         res.status(400).json({ message: err.message });
     }
