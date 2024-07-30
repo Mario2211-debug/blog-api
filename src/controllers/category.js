@@ -24,3 +24,13 @@ export const getCategory = asyncHandler(async (req, res) => {
         res.status(500).json({ message: error.message })
     }
 })
+
+export const getCategoryById = asyncHandler(async (req, res) => {
+    try {
+        const category = await Category.findById(req.params.id)
+        res.json(category)
+        console.log("Solicitando o GET")
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+})

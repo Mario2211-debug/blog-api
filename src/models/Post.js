@@ -12,5 +12,4 @@ const postSchema = new mongoose.Schema({
 
 })
 mongoose.set('strictPopulate', false); // Desativa a verificação estrita
-
 export default mongoose.model('Post', postSchema)

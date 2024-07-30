@@ -1,6 +1,6 @@
 import express from 'express';
 import { createPost, updatePost, getPosts, getPostByID, deletePost } from '../controllers/post.js';
-import { getCategory, creatCategory } from '../controllers/category.js';
+import { getCategory, creatCategory, getCategoryById } from '../controllers/category.js';
 import multer from 'multer';
 
 const router = express.Router();
@@ -17,6 +17,8 @@ router.delete('/post/:id', deletePost);
 //route for category
 router.post('/category', creatCategory)
 router.get('/categories', getCategory)
+router.get('/categorie/:id', getCategoryById)
+
 
 
 export default router;
