@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import express from 'express'
 import { MONGO_URI, PORT } from './config.js'
-import blogRoutes from './routes/blog.js';
+import blogRoutes from './routes/route.js';
 import cors from 'cors'
 //const express = require('express');
 //const MONGO_URI = require('./config')
@@ -15,6 +15,8 @@ import cors from 'cors'
 const app = express();
 
 app.use(cors())
+app.use(express.json());
+
 
 mongoose.connect(MONGO_URI).then(() => console.log('MongoDB connected')).catch(err => console.error(err))
 
