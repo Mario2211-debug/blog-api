@@ -28,9 +28,12 @@ export const getCategory = asyncHandler(async (req, res) => {
 export const getCategoryById = asyncHandler(async (req, res) => {
     try {
         const category = await Category.findById(req.params.id)
-        res.json(category)
-        console.log("Solicitando o GET")
+        if (!category) {
+            return res.status(404).json({ message: 'Categoria não encontrada' });
+        }
+        res.json(category);
     } catch (error) {
-        res.status(500).json({ message: error.message })
+        console.error('Erro ao buscar categoria:', error);
+        res.status(500).json({ message: 'Erro ao buscar categoria' });
     }
 })
