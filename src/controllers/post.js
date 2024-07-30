@@ -3,6 +3,7 @@ import { account_id, api_token } from '../config.js';
 import asyncHandler from 'express-async-handler';
 import axios from 'axios';
 import Post from '../models/Post.js';
+import Category from '../models/Category.js';
 
 
 
@@ -24,7 +25,7 @@ export const getPosts = async (req, res) => {
 };
 
 export const getPostByID = asyncHandler(async (req, res) => {
-    const post = await Post.findById(req.params.id);
+    const post = await Post.findById(req.params.id).populate('category', 'name')
     if (!post) {
         return res.status(404).json({ message: 'Post not found' });
     }
